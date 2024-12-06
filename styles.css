@@ -1,44 +1,116 @@
+
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
 .app {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    padding: 20px;
 }
 
 .fact-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 1.5rem;
     text-align: center;
+    font-size: 2.5rem;
+}
+
+.fact-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+}
+
+#fact-text {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 .category-tag {
     display: inline-block;
-    background: #e0e0e0;
+    background: rgba(255, 255, 255, 0.1);
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    margin: 1rem 0;
+    color: #00ff88;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin: 1.5rem 0;
 }
 
-button {
-    padding: 0.8rem 1.5rem;
+.glow-button {
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 5px;
-    background: #007bff;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #00ff88, #00b4d8);
     color: white;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-button:hover {
-    background: #0056b3;
+.glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
 }
+
+.fact-counter {
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+}
+
