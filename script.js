@@ -1,73 +1,67 @@
-let currentFactIndex = 0;
-
-const facts = [
-    {
-        id: 1,
-        fact: "One day on Saturn's moon Titan lasts 15.9 Earth days",
-        category: "planetary_time"
-    },
-    // ... previous facts ...
-    {
-        id: 9,
-        fact: "The universe is expanding faster now than it ever has before",
-        category: "cosmos"
-    },
-    {
-        id: 10,
-        fact: "There are more stars in the universe than grains of sand on all of Earth's beaches",
-        category: "cosmos"
-    }
-];
-
-document.getElementById('total-facts').textContent = facts.length;
-
-function showLoadingSpinner() {
-    const spinner = document.getElementById('spinner');
-    const factText = document.getElementById('fact-text');
-    spinner.style.display = 'block';
-    factText.style.opacity = '0.3';
-}
-
-function hideLoadingSpinner() {
-    const spinner = document.getElementById('spinner');
-    const factText = document.getElementById('fact-text');
-    spinner.style.display = 'none';
-    factText.style.opacity = '1';
-}
-
-function updateFact(index) {
-    showLoadingSpinner();
-    
-    setTimeout(() => {
-        document.getElementById('fact-text').textContent = facts[index].fact;
-        document.getElementById('category').textContent = facts[index].category;
-        document.getElementById('fact-number').textContent = facts[index].id;
-        hideLoadingSpinner();
-    }, 500);
-}
+// script.js
+let likeCount = 0;
 
 function getRandomFact() {
-    const newIndex = Math.floor(Math.random() * facts.length);
-    currentFactIndex = newIndex;
-    updateFact(currentFactIndex);
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    const factText = document.getElementById('fact-text');
+    const category = document.getElementById('category');
+    
+    // Remove and re-add fade-in class for animation
+    factText.classList.remove('fade-in');
+    void factText.offsetWidth; // Trigger reflow
+    factText.classList.add('fade-in');
+    
+    factText.textContent = facts[randomIndex].fact;
+    category.textContent = facts[randomIndex].category;
+    
+    // Add appropriate emoji based on category
+    const categoryEmoji = getCategoryEmoji(facts[randomIndex].category);
+    document.querySelector('.category-icon').textContent = categoryEmoji;
 }
 
-function getNextFact() {
-    currentFactIndex = (currentFactIndex + 1) % facts.length;
-    updateFact(currentFactIndex);
+function getCategoryEmoji(category) {
+    const emojiMap = {
+        'planetary_time': '⏰',
+        'stellar_objects': '⭐',
+        'asteroids': '☄️',
+        'moon': '🌙',
+        'sun': '☀️',
+        'planets': '🪐',
+        'space_travel': '🚀'
+    };
+    return emojiMap[category] || '🌟';
+}
+
+function likeFact() {
+    likeCount++;
+    document.getElementById('likes').textContent = likeCount;
+    
+    // Add heart animation
+    const heart = document.createElement('span');
+    heart.textContent = '❤️';
+    heart.style.position = 'absolute';
+    heart.style.animation = 'flyHeart 1s ease-out';
+    document.querySelector('.like-counter').appendChild(heart);
+    
+    setTimeout(() => heart.remove(), 1000);
 }
 
 function shareOnSocial() {
+    const fact = document.getElementById('fact-text').textContent;
+    
     if (navigator.share) {
         navigator.share({
-            title: 'Amazing Space Fact!',
-            text: document.getElementById('fact-text').textContent,
+            title: '🌟 Amazing Space Fact!',
+            textSpaceFacts`,
             url: window.location.href,
         }).catch(console.error);
     } else {
-        alert('Sharing is not supported on this browser');
+        // Fallback copy to clipboard
+        navigator.clipboard.writeText(fact)
+            .then(() => alert('Fact copied to clipboard!'))
+            .catch(console.error);
     }
 }
 
-// Initialize with first fact
-updateFact(currentFactIndex);
+// Initialize with random fact on load
+document.addEventListener('DOMContentLoaded', getRandomFact);
