@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Facts Explorer</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="stars"></div>
     <div class="app">
         <div class="fact-card">
-            <h2>🚀 Space Facts Explorer</h2>
+            <div class="card-header">
+                <h2>🚀 Space Facts Explorer</h2>
+                <div class="like-counter">
+                    <span id="likes">0</span> ❤️
+                </div>
+            </div>
             <div class="fact-container">
-                <p id="fact-text">One day on Saturn's moon Titan lasts 15.9 Earth days</p>
-                <div class="loading-spinner" id="spinner"></div>
+                <p id="fact-text" class="fade-in">One day on Saturn's moon Titan lasts 15.9 Earth days</p>
             </div>
             <div class="category-tag">
+                <span class="category-icon">🌟</span>
                 Category: <span id="category">planetary_time</span>
             </div>
-            <div class="fact-counter">
-                Fact #<span id="fact-number">1</span> of <span id="total-facts">8</span>
-            </div>
             <div class="buttons">
-                <button onclick="getRandomFact()">🎲 Random Fact</button>
-                <button onclick="getNextFact()">➡️ Next Fact</button>
-                <button onclick="shareOnSocial()">📤 Share</button>
+                <button onclick="getRandomFact()" class="pulse">
+                    <span class="button-icon">🔄</span> Next Fact
+                </button>
+                <button onclick="likeFact()" class="like-btn">
+                    <span class="button-icon">❤️</span> Like
+                </button>
+                <button onclick="shareOnSocial()" class="share-btn">
+                    <span class="button-icon">📤</span> Share
+                </button>
             </div>
         </div>
     </div>
