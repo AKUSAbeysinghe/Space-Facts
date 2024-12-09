@@ -1,18 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
 .app {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    padding: 1rem;
 }
 
 .fact-card {
     background: white;
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
     text-align: center;
+}
+
+.fact-container {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+#fact-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #34495e;
 }
 
 .category-tag {
@@ -21,12 +53,21 @@
     padding: 0.5rem 1rem;
     border-radius: 20px;
     margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #2c3e50;
+}
+
+.fact-counter {
+    margin: 1rem 0;
+    color: #7f8c8d;
+    font-size: 0.9rem;
 }
 
 .buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 button {
@@ -36,9 +77,36 @@ button {
     background: #007bff;
     color: white;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
 button:hover {
     background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.loading-spinner {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        flex-direction: column;
+    }
+    
+    .fact-card {
+        padding: 1rem;
+    }
 }
