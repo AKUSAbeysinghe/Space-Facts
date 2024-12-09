@@ -9,32 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stars"></div>
     <div class="app">
         <div class="fact-card">
-            <div class="card-header">
-                <h2>🚀 Space Facts Explorer</h2>
-                <div class="like-counter">
-                    <span id="likes">0</span> ❤️
+            <div class="stars"></div>
+            <h1>🚀 Space Facts Explorer</h1>
+            <div class="fact-container">
+                <p id="fact-text">One day on Saturn's moon Titan lasts 15.9 Earth days</p>
+                <div class="category-tag">
+                    <span id="category">planetary_time</span>
                 </div>
             </div>
-            <div class="fact-container">
-                <p id="fact-text" class="fade-in">One day on Saturn's moon Titan lasts 15.9 Earth days</p>
-            </div>
-            <div class="category-tag">
-                <span class="category-icon">🌟</span>
-                Category: <span id="category">planetary_time</span>
-            </div>
             <div class="buttons">
-                <button onclick="getRandomFact()" class="pulse">
-                    <span class="button-icon">🔄</span> Next Fact
-                </button>
-                <button onclick="likeFact()" class="like-btn">
-                    <span class="button-icon">❤️</span> Like
-                </button>
-                <button onclick="shareOnSocial()" class="share-btn">
-                    <span class="button-icon">📤</span> Share
-                </button>
+                <button class="glow-button" onclick="getRandomFact()">🌟 Next Fact</button>
+                <button class="glow-button share" onclick="shareOnSocial()">📤 Share</button>
+            </div>
+            <div class="fact-counter">
+                <span id="fact-number">1</span>/8
             </div>
         </div>
     </div>
