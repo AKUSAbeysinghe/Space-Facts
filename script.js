@@ -1,3 +1,4 @@
+//Fun fact generator
 const facts = [
     {
         id: 1,
