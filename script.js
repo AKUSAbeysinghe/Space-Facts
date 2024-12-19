@@ -1,4 +1,4 @@
-//Fun fact generator
+//Fun fact generator , about space
 const facts = [
     {
         id: 1,
