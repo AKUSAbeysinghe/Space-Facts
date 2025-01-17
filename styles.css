@@ -24,6 +24,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+/* Category styling */
 .category {
     color: #e94560;
     font-style: italic;
