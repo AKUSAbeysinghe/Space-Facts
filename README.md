@@ -17,4 +17,5 @@ The **Space Facts Generator** is a web application designed to provide users wit
 This project is hosted using GitHub Pages. You can access it [here](https://AKUSAbeysinghe.github.io/Space-Facts/).
 
 
+
 ![space_fact_generator](https://github.com/user-attachments/assets/8fb423fc-93e4-4ddd-ae43-584ca20b128c)
