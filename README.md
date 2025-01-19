@@ -13,3 +13,4 @@ The **Space Facts Generator** is a web application designed to provide users wit
 - **CSS3**: For styling the user interface.
 - **JavaScript**: For dynamic content and interactivity.
 
+![space_fact_generator](https://github.com/user-attachments/assets/8fb423fc-93e4-4ddd-ae43-584ca20b128c)
